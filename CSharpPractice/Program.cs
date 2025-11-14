@@ -81,11 +81,9 @@ public class Program {
         //-------------------- Conditional Statements (Control Flow)-----------------
         if (age < 18) {
             Console.WriteLine("Minor");
-        }
-        else if (age >= 18 && age < 65) {
+        } else if (age >= 18 && age < 65) {
             Console.WriteLine("Adult");
-        }
-        else {
+        } else {
             Console.WriteLine("Senior");
         }
 

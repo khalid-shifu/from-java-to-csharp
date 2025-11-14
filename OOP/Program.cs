@@ -378,9 +378,6 @@ public class Program
         emp1.GiveRaise(5000m);
         Console.WriteLine($"After raise: ${emp1.Salary}");
 
-        emp1.GiveRaise(10);  // 10% raise
-        Console.WriteLine($"After 10% raise: ${emp1.Salary}");
-
         Console.WriteLine("\n--- Inheritance ---");
         Manager mgr1 = new("Bob Wilson", 35, 95000m, "bob@company.com", "Engineering");
         mgr1.AddTeamMember("Alice Johnson");
