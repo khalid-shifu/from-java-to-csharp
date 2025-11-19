@@ -3,6 +3,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using PersonAPI.Data;
+using PersonAPI.Services;
+using PersonAPI.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,9 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 21))));
 
+// Register Service Layer (Like @Service in Spring Boot)
+builder.Services.AddScoped<IPersonService, PersonService>();
+
 // ========== Build the application ==========
 var app = builder.Build();
 
@@ -27,6 +32,9 @@ using (var scope = app.Services.CreateScope())
 }
 
 // ========== Configure the HTTP request pipeline (Middleware) ==========
+
+// Global Exception Handler (Like @ControllerAdvice in Spring Boot)
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 // Redirect HTTP to HTTPS
 app.UseHttpsRedirection();

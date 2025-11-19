@@ -6,6 +6,7 @@ namespace PersonAPI.Data;
 // Like extending JpaRepository in Spring Boot
 public class ApplicationDbContext : DbContext
 {
+
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
@@ -13,6 +14,7 @@ public class ApplicationDbContext : DbContext
 
     // DbSet = Table in database
     public DbSet<Person> Persons { get; set; }
+    public DbSet<Student> Students { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

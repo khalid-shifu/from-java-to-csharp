@@ -1,0 +1,7 @@
+# EditorConfig for C# formatting - Java-style braces
+
+root = true
+
+[*.cs]
+# Keep opening braces on the same line (K&R style like Java)
+csharp_new_line_before_open_brace = none
